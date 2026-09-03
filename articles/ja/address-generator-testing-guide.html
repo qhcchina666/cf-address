@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#2563eb"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ウェブサイトテストのためのアドレスジェネレーター：開発者向け完全ガイド | Aimei</title>
+  <meta name="description" content="ウェブサイトテストにランダムアドレスジェネレーターを活用する方法を紹介。フォームテスト、UI検証、データベース投入、自動テスト、越境ECテストの5つの実用的なユースケース。">
+  <meta name="keywords" content="アドレスジェネレーターテスト,ウェブサイトテスト,テスト用ランダムアドレス,テストデータ生成,開発者テストツール">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://address.aixmb.cn/articles/ja/address-generator-testing-guide.html">
+  <link rel="alternate" hreflang="zh" href="https://address.aixmb.cn/articles/address-generator-testing-guide.html">
+  <link rel="alternate" hreflang="en" href="https://address.aixmb.cn/articles/en/address-generator-testing-guide.html">
+  <link rel="alternate" hreflang="ja" href="https://address.aixmb.cn/articles/ja/address-generator-testing-guide.html">
+  <link rel="alternate" hreflang="ko" href="https://address.aixmb.cn/articles/ko/address-generator-testing-guide.html">
+  <meta property="og:title" content="ウェブサイトテストのためのアドレスジェネレーター：開発者向け完全ガイド | アドレスジェネレーター">
+  <meta property="og:description" content="ウェブサイトテストにランダムアドレスジェネレーターを活用する方法を紹介。5つの実用的なユースケース。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://address.aixmb.cn/articles/ja/address-generator-testing-guide.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <script>var currentLang='ja';</script>
+  <style>
+    :root{--primary:#2563eb;--primary-dark:#1d4ed8;--bg:#f8fafc;--card:#fff;--text:#1e293b;--text-secondary:#64748b;--border:#e2e8f0;--hover:#eff6ff;--success:#16a34a;--radius:12px;--radius-sm:8px}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.8;color:var(--text);background:var(--bg)}
+    .container{max-width:800px;margin:0 auto;padding:0 20px}
+    .header{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+    .header .container{display:flex;align-items:center;padding-top:0.75rem;padding-bottom:0.75rem;max-width:960px}
+    .logo{font-size:1.2rem;font-weight:700;color:var(--primary);text-decoration:none;display:flex;align-items:center;gap:0.5rem;flex-shrink:0}
+    .nav-links{display:flex;gap:1.5rem;align-items:center;flex:1;justify-content:center}
+    .nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:var(--primary)}
+    .lang-switch{padding:0.4rem 0.75rem 0.4rem 2rem;border:1.5px solid var(--border);touch-action:manipulation;border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;color:var(--text);background-color:var(--card);cursor:pointer;outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat,no-repeat;background-position:left 0.45rem center,right 0.6rem center;padding-right:2rem;transition:border-color 0.2s,box-shadow 0.2s,background-color 0.2s;margin-left:auto;flex-shrink:0;min-width:120px}
+    .lang-switch:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,0.15)}
+    .lang-switch:hover{border-color:var(--primary);background-color:#f8fafc}
+    .breadcrumb{padding:1rem 0;font-size:0.85rem;color:var(--text-secondary)}
+    .breadcrumb a{color:var(--primary);text-decoration:none}
+    .breadcrumb a:hover{text-decoration:underline}
+    .article-header{text-align:center;padding:2rem 0 1.5rem}
+    .article-header h1{font-size:1.8rem;font-weight:800;color:var(--text);line-height:1.4;margin-bottom:0.75rem}
+    .article-meta{font-size:0.85rem;color:var(--text-secondary)}
+    .article-content{padding:1rem 0 2rem}
+    .article-content h2{font-size:1.4rem;font-weight:700;color:var(--text);margin:2rem 0 0.75rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border)}
+    .article-content h3{font-size:1.1rem;font-weight:600;color:var(--text);margin:1.5rem 0 0.5rem}
+    .article-content p{margin-bottom:1rem;color:var(--text);font-size:0.95rem}
+    .article-content ul,.article-content ol{margin:0.75rem 0 1.25rem 1.5rem;font-size:0.95rem}
+    .article-content li{margin-bottom:0.4rem;color:var(--text)}
+    .article-content blockquote{background:var(--hover);border-left:4px solid var(--primary);padding:1rem 1.25rem;margin:1.25rem 0;border-radius:0 var(--radius-sm) var(--radius-sm) 0;color:var(--text-secondary);font-size:0.9rem}
+    .article-content code{background:#f1f5f9;padding:0.15rem 0.4rem;border-radius:4px;font-size:0.88em;color:#e11d48;font-family:'SF Mono','Monaco','Menlo','Consolas',monospace}
+    .article-content pre{background:#1e293b;color:#e2e8f0;padding:1.25rem;border-radius:var(--radius-sm);overflow-x:auto;margin:1.25rem 0;font-size:0.85rem;line-height:1.6}
+    .tip-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--radius-sm);padding:1rem 1.25rem;margin:1.25rem 0;font-size:0.9rem}
+    .tip-box strong{color:var(--primary)}
+    .scenario-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+    .scenario-card h3{font-size:1.05rem;margin:0 0 0.5rem;color:var(--primary)}
+    .scenario-card p{font-size:0.9rem;color:var(--text-secondary);margin:0}
+    .cta-section{text-align:center;padding:2.5rem 0;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:var(--radius);margin:2rem 0}
+    .cta-section h2{font-size:1.5rem;margin-bottom:0.5rem;font-weight:700;border:none}
+    .cta-section p{color:var(--text-secondary);margin-bottom:1.25rem}
+    .cta-btn{display:inline-block;padding:0.75rem 2rem;background:var(--primary);color:#fff;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;font-size:1rem;transition:all 0.2s}
+    .cta-btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,0.3)}
+    .footer{background:var(--text);color:#94a3b8;padding:2rem 0;text-align:center;font-size:0.85rem;margin-top:3rem}
+    .footer a{color:#cbd5e1;text-decoration:none}
+    .footer a:hover{color:#fff}
+    .related-section{padding:2rem 0 2.5rem}
+.related-section-header{display:flex;align-items:center;gap:0.6rem;margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:2px solid var(--border)}
+.related-section-header h2{font-size:1.15rem;font-weight:700;margin:0;border:none;color:var(--text)}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.related-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-decoration:none;color:var(--text);transition:all 0.25s;display:flex;flex-direction:column;gap:0.5rem;position:relative;overflow:hidden}
+.related-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary);transform:scaleX(0);transition:transform 0.3s}
+.related-card:hover{border-color:var(--primary);box-shadow:0 8px 24px rgba(37,99,235,0.12);transform:translateY(-3px)}
+.related-card:hover::after{transform:scaleX(1)}
+.related-card-label{font-size:0.75rem;font-weight:600;color:var(--primary);letter-spacing:0.05em;display:flex;align-items:center;gap:0.35rem}
+.related-card-label .arrow{font-size:0.85rem}
+.related-card h3{font-size:1.05rem;font-weight:700;color:var(--text);margin:0;line-height:1.4;transition:color 0.2s}
+.related-card:hover h3{color:var(--primary)}
+.related-card p{font-size:0.85rem;color:var(--text-secondary);margin:0;line-height:1.5}
+@media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    .related-card h3{font-size:1rem;color:var(--primary);margin:0 0 0.4rem}
+    .related-card p{font-size:0.85rem;color:var(--text-secondary);margin:0}
+    @media(max-width:768px){.article-header h1{font-size:1.4rem}.article-content h2{font-size:1.2rem}.nav-links{gap:0.6rem;flex-wrap:wrap}.nav-links a{font-size:0.85rem;padding:0.35rem 0.5rem}}
+  @media(max-width:480px){.container{padding:0 12px}.article-header h1{font-size:1.25rem}.article h1{font-size:1.25rem}.article h2{font-size:1.1rem}.article h3{font-size:1rem}.article-content h2{font-size:1.1rem}.article-content h3{font-size:1rem}.article{padding:1.25rem}.article-content table,.article table{font-size:0.68rem}.article-content table th,.article-content table td,.article table th,.article table td{padding:0.3rem 0.35rem}.related-grid{grid-template-columns:1fr}.cta-section{padding:1.5rem 1rem}}.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#1e293b;color:#e2e8f0;padding:1rem 1.5rem;z-index:9999;display:none;box-shadow:0 -4px 20px rgba(0,0,0,0.2);font-size:0.85rem;line-height:1.6}.cookie-banner.show{display:block}.cookie-banner-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}.cookie-banner-text{flex:1;min-width:200px}.cookie-banner-text a{color:#93c5fd;text-decoration:underline}.cookie-banner-text a:hover{color:#bfdbfe}.cookie-banner-actions{display:flex;gap:0.5rem;flex-shrink:0}.cookie-btn{padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;white-space:nowrap}.cookie-btn-accept{background:#2563eb;color:#fff}.cookie-btn-accept:hover{background:#1d4ed8}@media(max-width:480px){.cookie-banner-inner{flex-direction:column;text-align:center}.cookie-banner-actions{width:100%;justify-content:center}}.back-to-top{position:fixed;bottom:80px;right:24px;width:44px;height:44px;background:var(--primary);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:1.2rem;z-index:99;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 12px rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center}.back-to-top.show{opacity:1;visibility:visible}.back-to-top:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 16px rgba(37,99,235,0.4)}</style>
+  <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "Article",
+   "headline": "ウェブサイトテストのためのアドレスジェネレーター：開発者向け完全ガイド | Aimei",
+   "description": "ウェブサイトテストにランダムアドレスジェネレーターを活用する方法を紹介。フォームテスト、UI検証、データベース投入、自動テスト、越境ECテストの5つの実用的なユースケース。",
+   "datePublished": "2026-08-25",
+   "author": {"@type": "Organization", "name": "Aimei"},
+   "publisher": {"@type": "Organization", "name": "Aimei", "url": "https://address.aixmb.cn/"},
+   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://address.aixmb.cn/articles/ja/address-generator-testing-guide.html"}
+  }
+  </script></head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="../../ja/index.html" class="logo">🏠 ホーム</a>
+    <nav class="nav-links"> <a href="../index.html?lang=ja">記事</a>
+      <a href="../../ja/about.html">会社概要</a>
+    </nav>
+    <select class="lang-switch" onchange="if(this.value)window.location.href=this.value">
+     <option value="../address-generator-testing-guide.html">中文</option>
+     <option value="../en/address-generator-testing-guide.html">English</option>
+     <option value="" selected>日本語</option>
+     <option value="../ko/address-generator-testing-guide.html">한국어</option>
+    </select>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <nav class="breadcrumb"> <span>›</span> <a href="../index.html?lang=ja">記事</a> <span>›</span> <strong>アドレスジェネレーター テストガイド</strong>
+    </nav>
+
+    <header class="article-header">
+      <h1>ウェブサイトテストのためのアドレスジェネレーター：開発者向け完全ガイド</h1>
+      <p class="article-meta">📅 2026年8月 · 🏷️ 開発テスト · アドレスジェネレーター · テストデータ</p>
+    </header>
+
+    <article class="article-content">
+      <p>ソフトウェア開発において、テストデータはシステム品質を確保するために不可欠です。住所情報は、ユーザー登録、ECチェックアウト、物流における中核的なデータ要素であり、徹底的なテストカバレッジが必要です。このガイドでは、あらゆる種類のテストタスクにアドレスジェネレーターを効果的に使用する方法を探ります。</p>
+
+      <h2>テストに偽の住所が必要な理由</h2>
+      <p>開発中、開発者は共通のジレンマに直面します：機能を検証するために大量の住所データが必要ですが、実際のユーザーデータは使用できません。実際の住所を使用すると、プライバシーコンプライアンスの懸念（GDPR、CCPA）が生じるだけでなく、住所が誤ってフォーマットされている場合、信頼性の低いテスト結果につながる可能性もあります。</p>
+      <p>アドレスジェネレーターは両方の問題を同時に解決します。各国の郵便基準に準拠したランダムアドレスを数秒で生成し、プライバシーを保護しながら正しいデータフォーマットを確保します。</p>
+
+      <blockquote><strong>重要な原則：</strong>本番環境の実際のユーザーデータをテスト環境で使用しないでください。これはプライバシー規制に違反し、データ侵害のリスクを高めます。</blockquote>
+
+      <h2>5つの実用的なテストユースケース</h2>
+
+      <h3>ユースケース1：フォームテスト</h3>
+      <p>すべてのウェブサイトはフォームに依存しています — 登録フォーム、チェックアウトフォーム、お問い合わせフォーム。アドレスジェネレーターは、以下の側面をテストするために多様な住所形式を迅速に生成できます：</p>
+      <ul>
+        <li><strong>入力検証</strong> — 特殊文字、長い通り名、アパート番号付き住所など、さまざまな住所形式をフォームが正しく処理するかをテスト。</li>
+        <li><strong>必須フィールド</strong> — 住所行2などのオプションフィールドが本当にオプションであり、送信をブロックしないことを確認。</li>
+        <li><strong>国際化</strong> — 米国の3行形式と日本の逆順形式など、異なる国の住所形式にフォームがどの程度適応するかをテスト。</li>
+        <li><strong>エラーメッセージ</strong> — 無効な住所が入力されたときにエラーメッセージが明確でユーザーフレンドリーであることを確認。</li>
+      </ul>
+
+      <div class="scenario-card"><h3>💼 実践的なヒント</h3><p>アドレスジェネレーターを使用して、異なる国から100件の住所をバッチ生成します。自動スクリプトでフォームに入力し、各国の送信成功率を確認します。いずれかの国の合格率が95％を下回る場合、その国に対するフォームのフォーマットサポートが不十分である可能性があります。</p></div>
+
+      <h3>ユースケース2：UI検証とビジュアルテスト</h3>
+      <p>住所フィールドの表示方法はユーザー体験に直接影響します。アドレスジェネレーターを使用して以下を迅速に検証します：</p>
+      <ul>
+        <li>長い住所テキストが切り詰められたり、コンテナからはみ出したりしないか</li>
+        <li>異なる言語の文字（ドイツ語のウムラウト ä、ö、ü、フランス語のアクセント é、è、ê）が正しくレンダリングされるか</li>
+        <li>モバイルレスポンシブレイアウトで住所表示が維持されるか</li>
+        <li>異なる画面サイズで住所ラベルが適切に整列するか</li>
+      </ul>
+
+      <h3>ユースケース3：データベース投入とパフォーマンステスト</h3>
+      <p>パフォーマンステストには、実際の負荷をシミュレートするために大量のデータが必要です。アドレスジェネレーターは以下に数万件の住所レコードをバッチ生成できます：</p>
+      <ul>
+        <li><strong>データベースストレステスト</strong> — 数百万件の住所レコードを投入してクエリパフォーマンスとインデックス効率をテスト。</li>
+        <li><strong>API負荷テスト</strong> — 住所データを含む大量の同時リクエストをシミュレートしてシステムスループットを検証。</li>
+        <li><strong>データ移行検証</strong> — データベースのアップグレードや移行後に、生成された住所データを使用してデータ整合性を検証。</li>
+      </ul>
+
+      <h3>ユースケース4：自動テスト（Selenium / Cypress / Playwright）</h3>
+      <p>エンドツーエンドの自動テストでは、住所データは不可欠な入力です。アドレスジェネレーターをCI/CDパイプラインに統合できます：</p>
+      <ul>
+        <li>各テスト実行前に新しいランダムアドレスを生成してテストデータの汚染を回避</li>
+        <li>異なる国の住所を使用して国際化機能が正しく動作することを検証</li>
+        <li>回帰テスト中に住所関連のすべてのパスを自動的にカバー</li>
+      </ul>
+
+      <div class="tip-box"><strong>💡 統合例：</strong>Playwrightテストスクリプトでは、まずアドレスジェネレーターAPIを呼び出してランダムアドレスを取得し、それをテストフォームに入力できます。この方法では、毎回新しいデータを使用するため、テスト間のデータ依存関係が排除されます。</div>
+
+      <h3>ユースケース5：越境ECテスト</h3>
+      <p>越境ECプラットフォームは世界中の住所形式を処理する必要があります。6カ国（米国、カナダ、英国、オーストラリア、ドイツ、フランス）をサポートするアドレスジェネレーターにより、以下を対象としたテストが可能です：</p>
+      <ul>
+        <li>各国の郵便番号形式検証（例：米国5桁ZIP、カナダA1A 1A1、英国英数字郵便番号）</li>
+        <li>州/省ドロップダウンメニューと住所形式との連携</li>
+        <li>税金計算が正しい住所地域に基づいているか</li>
+        <li>配送料計算が正確か</li>
+      </ul>
+
+      <h2>アドレスジェネレーターの選び方</h2>
+      <ol>
+        <li><strong>データ形式の準拠</strong> — 生成された住所が各国の郵便基準に準拠しているか。これは最も基本的な品質要件です。</li>
+        <li><strong>対応国数</strong> — テストニーズに基づいて対象国をカバーするツールを選択してください。</li>
+        <li><strong>バッチ生成機能</strong> — パフォーマンステストとデータベース投入には大量のデータが必要です。バッチ生成は必須です。</li>
+        <li><strong>エクスポート形式</strong> — 自動化ワークフローへの容易な統合のために、CSV、JSONなどの一般的なエクスポート形式をサポートしているか。</li>
+        <li><strong>無料で利用可能</strong> — 開発とテスト中は、無料ツールがプロジェクトコストの抑制に役立ちます。</li>
+      </ol>
+
+      <p>当社の<a href="../../ja/index.html" style="color:var(--primary);text-decoration:none;font-weight:600;">ホーム</a>は上記のすべての基準を満たしています：6カ国の住所形式をサポート、ワンクリックバッチ生成、CSVエクスポート、完全無料、登録不要。</p>
+
+      <h2>テストのベストプラクティス</h2>
+      <ul>
+        <li><strong>階層的テスト</strong> — ユニットテストには固定住所、統合テストにはランダム住所、E2Eテストには両方の組み合わせを使用。</li>
+        <li><strong>データ分離</strong> — 別個のテストデータベースを使用して、テストデータが本番データから厳密に分離されていることを確認。</li>
+        <li><strong>定期的な更新</strong> — 郵便基準の進化に伴い住所形式が変更される可能性があります。形式の最新性を確保するためにジェネレーターを定期的に更新。</li>
+        <li><strong>エッジケースをカバー</strong> — 通常の住所に加えて、非常に長い住所、特殊文字を含む住所、必須フィールドのみの最小住所もテスト。</li>
+      </ul>
+
+      <blockquote><strong>まとめ：</strong>アドレスジェネレーターは、あらゆる開発者のテストツールキットに不可欠な要素です。テスト効率を向上させるだけでなく、プライバシーコンプライアンスの懸念を根本的に解決します。フォーム検証、パフォーマンステスト、越境ECシナリオのいずれにおいても、適切なアドレスジェネレーターがテストをより速く、より信頼性の高いものにします。</blockquote>
+    </article>
+
+    <section class="cta-section">
+      <h2>今すぐアドレスジェネレーターを試す</h2>
+      <p>無料、登録不要。6カ国対応。ワンクリック生成、バッチエクスポート、効率的な開発とテストのために構築されています。</p>
+      <a href="../../ja/index.html" class="cta-btn">🎯 アドレスジェネレーターを使い始める</a>
+    </section>
+
+    <section class="related-section">
+      <div class="related-section-header"><h2>関連記事</h2></div>
+      <div class="related-grid">
+        <a href="privacy-random-address-guide.html" class="related-card">
+          <span class="related-card-label">← 前の記事</span>
+          <h3>オンラインプライバシーを守る：ランダムアドレスを使用する理由と方法 | Aimei</h3>
+          <p>ランダムアドレスの使用がオンラインプライバシーを保護する理由を学ぶ。仮想アドレスを使用するタイミング、データ侵害の事例研究、法的コンプライアンスの考慮事項。</p>
+        </a>
+        <a href="address-generator-use-cases.html" class="related-card">
+          <span class="related-card-label">次の記事 →</span>
+          <h3>アドレスジェネレーターの5つの実用的なユースケース：開発とテスト | Aimei</h3>
+          <p>ソフトウェア開発とテストにおけるアドレスジェネレーターの5つのコアユースケースを紹介。フォームテスト、自動テスト、UIプロトタイピング、データベース投入、CI/CD統合をコード例付きで解説。</p>
+        </a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>ホーム</h4><p>6カ国のリアルなランダム住所を無料で生成するオンラインツール。すべてのデータはテスト目的のみです。</p></div>
+      <div class="footer-col"><h4>クイックリンク</h4> <a href="../index.html?lang=ja">記事</a><a href="../../ja/about.html">会社概要</a><a href="../../ja/contact.html">お問い合わせ</a></div>
+      <div class="footer-col"><h4>法的情報</h4><a href="../../ja/privacy.html">プライバシーポリシー</a><a href="../../ja/terms.html">利用規約</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 アドレスジェネレーター | すべてのデータはテスト目的でランダムに生成されています</p></div>
+  </div>
+</footer>
+
+<script src="../../script.js"></script>
+<div class="cookie-banner" id="cookieBanner"><div class="cookie-banner-inner"><div class="cookie-banner-text">このサイトはCookieとGoogle AdSenseを使用して体験を向上させています。続行すると、<a href="../../ja/privacy.html">プライバシーポリシー</a>に同意したことになります。</div><div class="cookie-banner-actions"><button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">同意する</button></div></div></div><script>function acceptCookies(){document.getElementById(\"cookieBanner\").classList.remove(\"show\");localStorage.setItem(\"cookieConsent\",\"accepted\")}if(!localStorage.getItem(\"cookieConsent\")){document.getElementById(\"cookieBanner\").classList.add(\"show\")}</script><button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:&#39;smooth&#39;})" title="返回顶部">&#8593;</button><script>window.addEventListener(&#39;scroll&#39;,function(){document.getElementById(&#39;backToTop&#39;).classList.toggle(&#39;show&#39;,window.scrollY>300)})</script></body>
+</html>

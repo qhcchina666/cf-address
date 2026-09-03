@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#2563eb"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Address Generator: 5 Use Cases for Website Testing | Aimei</title>
+  <meta name="description" content="Discover 5 practical use cases for address generators in QA testing: form validation, automation, data seeding, and more. Free tool included.">
+  <meta name="keywords" content="address generator testing, website testing, random address for testing, test data generation, developer testing tools">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://address.aixmb.cn/articles/en/address-generator-testing-guide.html">
+  <meta property="og:title" content="Address Generator: 5 Use Cases for Website Testing | Aimei">
+  <meta property="og:description" content="Discover 5 practical use cases for address generators in QA testing: form validation, automation, data seeding, and more. Free tool included.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://address.aixmb.cn/articles/en/address-generator-testing-guide.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="zh" href="../address-generator-testing-guide.html">
+  <link rel="alternate" hreflang="en" href="https://address.aixmb.cn/articles/en/address-generator-testing-guide.html">
+  <link rel="alternate" hreflang="ja" href="https://address.aixmb.cn/articles/ja/address-generator-testing-guide.html">
+  <link rel="alternate" hreflang="ko" href="https://address.aixmb.cn/articles/ko/address-generator-testing-guide.html">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <style>
+    :root{--primary:#2563eb;--primary-dark:#1d4ed8;--bg:#f8fafc;--card:#fff;--text:#1e293b;--text-secondary:#64748b;--border:#e2e8f0;--hover:#eff6ff;--success:#16a34a;--radius:12px;--radius-sm:8px}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.8;color:var(--text);background:var(--bg)}
+    .container{max-width:800px;margin:0 auto;padding:0 20px}
+
+    .header{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+    .header .container{display:flex;align-items:center;padding-top:0.75rem;padding-bottom:0.75rem;max-width:960px}
+    .logo{font-size:1.2rem;font-weight:700;color:var(--primary);text-decoration:none;display:flex;align-items:center;gap:0.5rem;flex-shrink:0}
+    .nav-links{display:flex;gap:1.5rem;align-items:center;flex:1;justify-content:center}
+    .nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:var(--primary)}
+    .lang-switch{padding:0.4rem 0.75rem 0.4rem 2rem;border:1.5px solid var(--border);touch-action:manipulation;border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;color:var(--text);background-color:var(--card);cursor:pointer;outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat,no-repeat;background-position:left 0.45rem center,right 0.6rem center;padding-right:2rem;transition:border-color 0.2s,box-shadow 0.2s,background-color 0.2s;margin-left:auto;flex-shrink:0;min-width:120px}
+    .lang-switch:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,0.15)}
+    .lang-switch:hover{border-color:var(--primary);background-color:#f8fafc}
+
+    .breadcrumb{padding:1rem 0;font-size:0.85rem;color:var(--text-secondary)}
+    .breadcrumb a{color:var(--primary);text-decoration:none}
+    .breadcrumb a:hover{text-decoration:underline}
+    .breadcrumb span{color:var(--text-secondary)}
+
+    .article-header{text-align:center;padding:2rem 0 1.5rem}
+    .article-header h1{font-size:1.8rem;font-weight:800;color:var(--text);line-height:1.4;margin-bottom:0.75rem}
+    .article-meta{font-size:0.85rem;color:var(--text-secondary)}
+
+    .article-content{padding:1rem 0 2rem}
+    .article-content h2{font-size:1.4rem;font-weight:700;color:var(--text);margin:2rem 0 0.75rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border)}
+    .article-content h3{font-size:1.1rem;font-weight:600;color:var(--text);margin:1.5rem 0 0.5rem}
+    .article-content p{margin-bottom:1rem;color:var(--text);font-size:0.95rem}
+    .article-content ul,.article-content ol{margin:0.75rem 0 1.25rem 1.5rem;font-size:0.95rem}
+    .article-content li{margin-bottom:0.4rem;color:var(--text)}
+    .article-content blockquote{background:var(--hover);border-left:4px solid var(--primary);padding:1rem 1.25rem;margin:1.25rem 0;border-radius:0 var(--radius-sm) var(--radius-sm) 0;color:var(--text-secondary);font-size:0.9rem}
+    .article-content code{background:#f1f5f9;padding:0.15rem 0.4rem;border-radius:4px;font-size:0.88em;color:#e11d48;font-family:'SF Mono','Monaco','Menlo','Consolas',monospace}
+    .article-content pre{background:#1e293b;color:#e2e8f0;padding:1.25rem;border-radius:var(--radius-sm);overflow-x:auto;margin:1.25rem 0;font-size:0.85rem;line-height:1.6}
+
+    .tip-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--radius-sm);padding:1rem 1.25rem;margin:1.25rem 0;font-size:0.9rem}
+    .tip-box strong{color:var(--primary)}
+
+    .scenario-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+    .scenario-card h3{font-size:1.05rem;margin:0 0 0.5rem;color:var(--primary)}
+    .scenario-card p{font-size:0.9rem;color:var(--text-secondary);margin:0}
+
+    .cta-section{text-align:center;padding:2.5rem 0;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:var(--radius);margin:2rem 0}
+    .cta-section h2{font-size:1.5rem;margin-bottom:0.5rem;font-weight:700;border:none}
+    .cta-section p{color:var(--text-secondary);margin-bottom:1.25rem}
+    .cta-btn{display:inline-block;padding:0.75rem 2rem;background:var(--primary);color:#fff;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;font-size:1rem;transition:all 0.2s}
+    .cta-btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,0.3)}
+
+    .footer{background:var(--text);color:#94a3b8;padding:2rem 0;text-align:center;font-size:0.85rem;margin-top:3rem}
+    .footer a{color:#cbd5e1;text-decoration:none}
+    .footer a:hover{color:#fff}
+
+    .related-section{padding:2rem 0 2.5rem}
+.related-section-header{display:flex;align-items:center;gap:0.6rem;margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:2px solid var(--border)}
+.related-section-header h2{font-size:1.15rem;font-weight:700;margin:0;border:none;color:var(--text)}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.related-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-decoration:none;color:var(--text);transition:all 0.25s;display:flex;flex-direction:column;gap:0.5rem;position:relative;overflow:hidden}
+.related-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary);transform:scaleX(0);transition:transform 0.3s}
+.related-card:hover{border-color:var(--primary);box-shadow:0 8px 24px rgba(37,99,235,0.12);transform:translateY(-3px)}
+.related-card:hover::after{transform:scaleX(1)}
+.related-card-label{font-size:0.75rem;font-weight:600;color:var(--primary);letter-spacing:0.05em;display:flex;align-items:center;gap:0.35rem}
+.related-card-label .arrow{font-size:0.85rem}
+.related-card h3{font-size:1.05rem;font-weight:700;color:var(--text);margin:0;line-height:1.4;transition:color 0.2s}
+.related-card:hover h3{color:var(--primary)}
+.related-card p{font-size:0.85rem;color:var(--text-secondary);margin:0;line-height:1.5}
+@media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    .related-card h3{font-size:1rem;color:var(--primary);margin:0 0 0.4rem}
+    .related-card p{font-size:0.85rem;color:var(--text-secondary);margin:0}
+
+    @media(max-width:768px){
+      .article-header h1{font-size:1.4rem}
+      .article-content h2{font-size:1.2rem}
+      .nav-links{gap:0.6rem;flex-wrap:wrap}.nav-links a{font-size:0.85rem;padding:0.35rem 0.5rem}
+    }
+  @media(max-width:480px){.container{padding:0 12px}.article-header h1{font-size:1.25rem}.article h1{font-size:1.25rem}.article h2{font-size:1.1rem}.article h3{font-size:1rem}.article-content h2{font-size:1.1rem}.article-content h3{font-size:1rem}.article{padding:1.25rem}.article-content table,.article table{font-size:0.68rem}.article-content table th,.article-content table td,.article table th,.article table td{padding:0.3rem 0.35rem}.related-list{grid-template-columns:1fr}.cta-section{padding:1.5rem 1rem}}.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#1e293b;color:#e2e8f0;padding:1rem 1.5rem;z-index:9999;display:none;box-shadow:0 -4px 20px rgba(0,0,0,0.2);font-size:0.85rem;line-height:1.6}.cookie-banner.show{display:block}.cookie-banner-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}.cookie-banner-text{flex:1;min-width:200px}.cookie-banner-text a{color:#93c5fd;text-decoration:underline}.cookie-banner-text a:hover{color:#bfdbfe}.cookie-banner-actions{display:flex;gap:0.5rem;flex-shrink:0}.cookie-btn{padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;white-space:nowrap}.cookie-btn-accept{background:#2563eb;color:#fff}.cookie-btn-accept:hover{background:#1d4ed8}@media(max-width:480px){.cookie-banner-inner{flex-direction:column;text-align:center}.cookie-banner-actions{width:100%;justify-content:center}}.back-to-top{position:fixed;bottom:80px;right:24px;width:44px;height:44px;background:var(--primary);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:1.2rem;z-index:99;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 12px rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center}.back-to-top.show{opacity:1;visibility:visible}.back-to-top:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 16px rgba(37,99,235,0.4)}</style>
+  <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "Article",
+   "headline": "Address Generator for Website Testing: Complete Developer's Guide | Aimei",
+   "description": "Discover how to use random address generators for website testing. 5 practical use cases including form testing, UI validation, database population, automation testing, and cross-border e-commerce testing.",
+   "datePublished": "2026-08-25",
+   "author": {"@type": "Organization", "name": "Aimei"},
+   "publisher": {"@type": "Organization", "name": "Aimei", "url": "https://address.aixmb.cn/"},
+   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://address.aixmb.cn/articles/en/address-generator-testing-guide.html"}
+  }
+  </script></head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="../../en/index.html" class="logo">🏠 Home</a>
+    <nav class="nav-links"> <a href="../index.html?lang=en">Articles</a>
+      <a href="../../en/about.html">About</a>
+    </nav>
+    <select class="lang-switch" onchange="if(this.value)window.location.href=this.value">
+     <option value="../address-generator-testing-guide.html">中文</option>
+     <option value="" selected>English</option>
+     <option value="../ja/address-generator-testing-guide.html">日本語</option>
+     <option value="../ko/address-generator-testing-guide.html">한국어</option>
+    </select>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <nav class="breadcrumb"> <span>›</span> <a href="../index.html?lang=en">Articles</a> <span>›</span> <strong>Address Generator Testing Guide</strong>
+    </nav>
+
+    <header class="article-header">
+      <h1>Address Generator for Website Testing: Complete Developer's Guide</h1>
+      <p class="article-meta">📅 August 2026 · 🏷️ Dev Testing · Address Generator · Test Data</p>
+    </header>
+
+    <article class="article-content">
+      <p>In software development, test data is essential for ensuring system quality. Address information — a core data element in user registration, e-commerce checkout, and logistics — requires thorough testing coverage. This guide explores how to use an address generator effectively for all types of testing tasks.</p>
+
+      <h2>Why You Need Fake Addresses for Testing</h2>
+      <p>During development, developers face a common dilemma: you need a large volume of address data to validate functionality, but you cannot use real user data. Using real addresses not only raises privacy compliance concerns (GDPR, CCPA) but can also lead to unreliable test results if the addresses are formatted incorrectly.</p>
+      <p>An address generator solves both problems at once. It produces random addresses that comply with each country's postal standards in seconds, protecting privacy while ensuring correct data formatting.</p>
+
+      <blockquote>
+        <strong>Key Principle:</strong> Never use real user data from production environments in your test environments. This violates privacy regulations and increases the risk of data breaches.
+      </blockquote>
+
+      <h2>5 Practical Testing Use Cases</h2>
+
+      <h3>Use Case 1: Form Testing</h3>
+      <p>Every website relies on forms — registration forms, checkout forms, contact forms. An address generator can quickly produce a wide variety of address formats to test the following aspects:</p>
+      <ul>
+        <li><strong>Input Validation</strong> — Test whether forms correctly handle various address formats, including special characters, long street names, and addresses with apartment numbers.</li>
+        <li><strong>Required Fields</strong> — Verify that optional fields like Address Line 2 are truly optional and do not block submission.</li>
+        <li><strong>Internationalization</strong> — Test how well forms adapt to different country address formats, such as the US three-line format versus Japan's reverse-order format.</li>
+        <li><strong>Error Messages</strong> — Verify that error messages are clear and user-friendly when invalid addresses are entered.</li>
+      </ul>
+
+      <div class="scenario-card">
+        <h3>💼 Practical Tip</h3>
+        <p>Use an address generator to batch-generate 100 addresses from different countries. Feed them into your form via an automated script and check the submission success rate for each country. If the pass rate for any country drops below 95%, your form likely has insufficient format support for that country.</p>
+      </div>
+
+      <h3>Use Case 2: UI Validation and Visual Testing</h3>
+      <p>How address fields display directly impacts user experience. Use an address generator to quickly verify:</p>
+      <ul>
+        <li>Whether long address text is truncated or overflows its container</li>
+        <li>Whether characters from different languages (German umlauts ä, ö, ü; French accents é, è, ê) render correctly</li>
+        <li>Whether address display remains intact on mobile responsive layouts</li>
+        <li>Whether address labels align properly across different screen sizes</li>
+      </ul>
+
+      <h3>Use Case 3: Database Population and Performance Testing</h3>
+      <p>Performance testing requires massive amounts of data to simulate real-world load. An address generator can batch-generate tens of thousands of address records for:</p>
+      <ul>
+        <li><strong>Database Stress Testing</strong> — Populate millions of address records to test query performance and index efficiency.</li>
+        <li><strong>API Load Testing</strong> — Simulate high volumes of concurrent requests carrying address data to verify system throughput.</li>
+        <li><strong>Data Migration Validation</strong> — After database upgrades or migrations, use generated address data to verify data integrity.</li>
+      </ul>
+
+      <h3>Use Case 4: Automation Testing (Selenium / Cypress / Playwright)</h3>
+      <p>In end-to-end automation testing, address data is an indispensable input. An address generator can be integrated into your CI/CD pipeline:</p>
+      <ul>
+        <li>Generate fresh random addresses before each test run to avoid test data contamination</li>
+        <li>Use addresses from different countries to verify that internationalization features work correctly</li>
+        <li>Automatically cover all address-related paths during regression testing</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>💡 Integration Example:</strong> In a Playwright test script, you can first call the address generator API to get a random address, then populate it into the test form. This way, every run uses fresh data, eliminating data dependencies between tests.
+      </div>
+
+      <h3>Use Case 5: Cross-Border E-Commerce Testing</h3>
+      <p>Cross-border e-commerce platforms need to handle address formats from around the globe. An address generator supporting 6 countries (US, Canada, UK, Australia, Germany, France) enables targeted testing of:</p>
+      <ul>
+        <li>Postal code format validation for each country (e.g., US 5-digit ZIP, Canadian A1A 1A1, UK alphanumeric postcodes)</li>
+        <li>State/province dropdown menus and their linkage with address format</li>
+        <li>Whether tax calculations are based on the correct address region</li>
+        <li>Whether shipping cost calculations are accurate</li>
+      </ul>
+
+      <h2>How to Choose an Address Generator</h2>
+      <p>There are many address generation tools on the market. Here are the key factors to consider when choosing one:</p>
+      <ol>
+        <li><strong>Data Format Compliance</strong> — Do the generated addresses comply with each country's postal standards? This is the most basic quality requirement.</li>
+        <li><strong>Number of Supported Countries</strong> — Choose a tool that covers your target countries based on your testing needs.</li>
+        <li><strong>Batch Generation Capability</strong> — Performance testing and database population require large volumes of data; batch generation is essential.</li>
+        <li><strong>Export Formats</strong> — Does it support CSV, JSON, and other common export formats for easy integration into automation workflows?</li>
+        <li><strong>Free to Use</strong> — During development and testing, free tools help keep project costs down.</li>
+      </ol>
+
+      <p>Our <a href="../../en/index.html" style="color:var(--primary);text-decoration:none;font-weight:600;">Home</a> meets all of the above criteria: supports 6 country address formats, one-click batch generation, CSV export, completely free, and no registration required.</p>
+
+      <h2>Testing Best Practices</h2>
+      <p>When incorporating an address generator into your testing workflow, following these best practices will maximize your efficiency:</p>
+      <ul>
+        <li><strong>Layered Testing</strong> — Use fixed addresses for unit tests, random addresses for integration tests, and a combination of both for E2E tests.</li>
+        <li><strong>Data Isolation</strong> — Ensure test data is strictly isolated from production data by using separate test databases.</li>
+        <li><strong>Regular Updates</strong> — Address formats may change as postal standards evolve. Regularly update your generator to ensure format currency.</li>
+        <li><strong>Cover Edge Cases</strong> — Beyond normal addresses, also test extremely long addresses, addresses with special characters, and minimal addresses with only required fields.</li>
+      </ul>
+
+      <h2>Privacy Compliance Notes</h2>
+      <p>Using an address generator itself demonstrates good privacy awareness, but the following areas still require attention:</p>
+      <ul>
+        <li><strong>Do Not Mix Data</strong> — Test data (generated random addresses) and real user data must be strictly separated. Never store them in the same database table.</li>
+        <li><strong>Log Management</strong> — If generated test addresses appear in logs, ensure those logs also have appropriate access controls and retention policies.</li>
+        <li><strong>GDPR / CCPA Compliance</strong> — Although the address generator creates fictitious data, if your system processes real user addresses, you must still comply with relevant privacy regulations.</li>
+        <li><strong>Clean Up Test Data</strong> — Before going live, purge all test data to prevent fictitious addresses from entering the production environment.</li>
+      </ul>
+
+      <blockquote>
+        <strong>Summary:</strong> An address generator is an indispensable part of any developer's testing toolkit. It not only improves testing efficiency but also fundamentally solves privacy compliance concerns. Whether for form validation, performance testing, or cross-border e-commerce scenarios, the right address generator makes testing faster and more reliable.
+      </blockquote>
+    </article>
+
+    <section class="cta-section">
+      <h2>Try the Address Generator Now</h2>
+      <p>Free, no registration required. Supports 6 countries. One-click generation, batch export, and API-ready — built for efficient development and testing.</p>
+      <a href="../../en/index.html" class="cta-btn">🎯 Start Using the Address Generator</a>
+    </section>
+
+    <section class="related-section">
+      <div class="related-section-header"><h2>Related Articles</h2></div>
+      <div class="related-grid">
+        <a href="privacy-random-address-guide.html" class="related-card">
+          <span class="related-card-label">← Previous</span>
+          <h3>Protect Your Online Privacy: Why and How to Use Random Addresses | Aimei</h3>
+          <p>Learn why using random addresses protects your privacy online. Best practices for when to use virtual addresses, data breach case studies, and legal compliance considerations.</p>
+        </a>
+        <a href="address-generator-use-cases.html" class="related-card">
+          <span class="related-card-label">Next →</span>
+          <h3>5 Practical Use Cases for Address Generators in Development &amp; Testing | Aimei</h3>
+          <p>Explore 5 core use cases for address generators in software development and testing. Includes form testing, automation testing, UI prototyping, database population, and CI/CD integration with code examples.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Home</h4>
+        <p>Free online tool to generate realistic random addresses for 6 countries. All data is for testing purposes only.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4> <a href="../index.html?lang=en">Articles</a>
+        <a href="../../en/about.html">About Us</a>
+        <a href="../../en/contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="../../en/privacy.html">Privacy Policy</a>
+        <a href="../../en/terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Address Generator | All data is randomly generated for testing purposes only</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner"><div class="cookie-banner-inner"><div class="cookie-banner-text">This website uses cookies and Google AdSense to improve your experience. By continuing, you agree to our <a href="../../en/privacy.html">Privacy Policy</a>.</div><div class="cookie-banner-actions"><button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button></div></div></div><script>function acceptCookies(){document.getElementById(\"cookieBanner\").classList.remove(\"show\");localStorage.setItem(\"cookieConsent\",\"accepted\")}if(!localStorage.getItem(\"cookieConsent\")){document.getElementById(\"cookieBanner\").classList.add(\"show\")}</script><button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:&#39;smooth&#39;})" title="返回顶部">&#8593;</button><script>window.addEventListener(&#39;scroll&#39;,function(){document.getElementById(&#39;backToTop&#39;).classList.toggle(&#39;show&#39;,window.scrollY>300)})</script></body>
+</html>

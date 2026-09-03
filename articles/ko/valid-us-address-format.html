@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#2563eb"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>유효한 미국 주소 형식이란: 표준, 검증 및 일반적인 오류 | Aimei</title>
+  <meta name="description" content="USPS 표준에 따라 미국 주소가 유효한 것으로 간주되는 기준을 알아보세요. 주소 검증 방법, 일반적인 거부 사유 및 플랫폼 검증을 통과하는 솔루션을 다룹니다.">
+  <meta name="keywords" content="유효한 미국 주소, USPS 주소 형식, 미국 주소 검증, 주소 확인, 유효한 우편 주소">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://address.aixmb.cn/articles/ko/valid-us-address-format.html">
+  <meta property="og:title" content="유효한 미국 주소 형식이란: 표준, 검증 및 일반적인 오류 | 주소 생성기">
+  <meta property="og:description" content="USPS 표준에 따라 미국 주소가 유효한 것으로 간주되는 기준을 알아보세요. 주소 검증 방법, 일반적인 거부 사유 및 플랫폼 검증을 통과하는 솔루션을 다룹니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://address.aixmb.cn/articles/ko/valid-us-address-format.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="zh" href="https://address.aixmb.cn/articles/valid-us-address-format.html">
+  <link rel="alternate" hreflang="en" href="https://address.aixmb.cn/articles/en/valid-us-address-format.html">
+  <link rel="alternate" hreflang="ja" href="https://address.aixmb.cn/articles/ja/valid-us-address-format.html">
+  <link rel="alternate" hreflang="ko" href="https://address.aixmb.cn/articles/ko/valid-us-address-format.html">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <script>var currentLang='ko';</script>
+  <style>
+    :root{--primary:#2563eb;--primary-dark:#1d4ed8;--bg:#f8fafc;--card:#fff;--text:#1e293b;--text-secondary:#64748b;--border:#e2e8f0;--hover:#eff6ff;--success:#16a34a;--radius:12px;--radius-sm:8px}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:var(--text);background:var(--bg)}
+    .container{max-width:960px;margin:0 auto;padding:0 20px}
+    .header{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+    .header .container{display:flex;align-items:center;padding-top:0.75rem;padding-bottom:0.75rem}
+    .logo{font-size:1.2rem;font-weight:700;color:var(--primary);text-decoration:none;display:flex;align-items:center;gap:0.5rem;flex-shrink:0}
+    .nav-links{display:flex;gap:1.5rem;align-items:center;flex:1;justify-content:center}
+    .nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:var(--primary)}
+    .lang-switch{padding:0.4rem 0.75rem 0.4rem 2rem;border:1.5px solid var(--border);touch-action:manipulation;border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;color:var(--text);background-color:var(--card);cursor:pointer;outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat,no-repeat;background-position:left 0.45rem center,right 0.6rem center;padding-right:2rem;transition:border-color 0.2s,box-shadow 0.2s,background-color 0.2s;margin-left:auto;flex-shrink:0;min-width:120px}
+    .lang-switch:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,0.15)}
+    .lang-switch:hover{border-color:var(--primary);background-color:#f8fafc}
+    .breadcrumb{padding:0.75rem 0;font-size:0.8rem;color:var(--text-secondary)}
+    .breadcrumb a{color:var(--primary);text-decoration:none}
+    .breadcrumb a:hover{text-decoration:underline}
+    .article-section{padding:1.5rem 0 3rem}
+    .article-section h1{font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:0.75rem;line-height:1.4}
+    .article-meta{font-size:0.8rem;color:var(--text-secondary);margin-bottom:2rem;display:flex;gap:1rem;flex-wrap:wrap}
+    .article-body{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+    .article-body h2{font-size:1.3rem;font-weight:700;margin:2rem 0 0.75rem;color:var(--text);padding-bottom:0.5rem;border-bottom:2px solid var(--hover)}
+    .article-body h2:first-child{margin-top:0}
+    .article-body h3{font-size:1.1rem;font-weight:600;margin:1.5rem 0 0.5rem;color:var(--text)}
+    .article-body p{margin-bottom:1rem;color:var(--text-secondary);font-size:0.95rem;line-height:1.7}
+    .article-body ul,.article-body ol{margin:0.75rem 0 1.25rem 1.5rem;color:var(--text-secondary)}
+    .article-body li{margin-bottom:0.5rem;font-size:0.95rem;line-height:1.6}
+    .article-body blockquote{background:var(--hover);border-left:4px solid var(--primary);padding:1rem 1.25rem;margin:1.25rem 0;border-radius:0 var(--radius-sm) var(--radius-sm) 0;color:var(--text-secondary);font-style:italic}
+    .article-body strong{color:var(--text)}
+    .article-body .highlight-box{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;border-radius:var(--radius-sm);padding:1.25rem;margin:1.25rem 0}
+    .article-body .highlight-box p{margin-bottom:0.5rem;color:var(--text)}
+    .article-body .highlight-box p:last-child{margin-bottom:0}
+    .cta-section{text-align:center;padding:2.5rem 0;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:var(--radius);margin:2rem 0}
+    .cta-section h2{font-size:1.5rem;margin-bottom:0.5rem;font-weight:700}
+    .cta-section p{color:var(--text-secondary);margin-bottom:1.25rem}
+    .cta-btn{display:inline-block;padding:0.75rem 2rem;background:var(--primary);color:#fff;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;font-size:1rem;transition:all 0.2s}
+    .cta-btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,0.3)}
+    .footer{background:var(--text);color:#94a3b8;padding:2rem 0;text-align:center;font-size:0.85rem;margin-top:3rem}
+    .footer a{color:#cbd5e1;text-decoration:none}
+    .footer a:hover{color:#fff}
+        .related-section{padding:2rem 0 2.5rem}
+.related-section-header{display:flex;align-items:center;gap:0.6rem;margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:2px solid var(--border)}
+.related-section-header h2{font-size:1.15rem;font-weight:700;margin:0;border:none;color:var(--text)}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.related-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-decoration:none;color:var(--text);transition:all 0.25s;display:flex;flex-direction:column;gap:0.5rem;position:relative;overflow:hidden}
+.related-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary);transform:scaleX(0);transition:transform 0.3s}
+.related-card:hover{border-color:var(--primary);box-shadow:0 8px 24px rgba(37,99,235,0.12);transform:translateY(-3px)}
+.related-card:hover::after{transform:scaleX(1)}
+.related-card-label{font-size:0.75rem;font-weight:600;color:var(--primary);letter-spacing:0.05em;display:flex;align-items:center;gap:0.35rem}
+.related-card-label .arrow{font-size:0.85rem}
+.related-card h3{font-size:1.05rem;font-weight:700;color:var(--text);margin:0;line-height:1.4;transition:color 0.2s}
+.related-card:hover h3{color:var(--primary)}
+.related-card p{font-size:0.85rem;color:var(--text-secondary);margin:0;line-height:1.5}
+@media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    .related-card h3{font-size:1rem;color:var(--primary);margin:0 0 0.4rem}
+    .related-card p{font-size:0.85rem;color:var(--text-secondary);margin:0}
+@media(max-width:768px){
+      .article-section h1{font-size:1.4rem}
+      .article-body{padding:1.25rem}
+      .nav-links{gap:0.6rem;flex-wrap:wrap}.nav-links a{font-size:0.85rem;padding:0.35rem 0.5rem}
+    }
+  @media(max-width:480px){.container{padding:0 12px}.article-header h1{font-size:1.25rem}.article h1{font-size:1.25rem}.article h2{font-size:1.1rem}.article h3{font-size:1rem}.article-content h2{font-size:1.1rem}.article-content h3{font-size:1rem}.article{padding:1.25rem}.article-content table,.article table{font-size:0.68rem}.article-content table th,.article-content table td,.article table th,.article table td{padding:0.3rem 0.35rem}.related-grid{grid-template-columns:1fr}.cta-section{padding:1.5rem 1rem}}.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#1e293b;color:#e2e8f0;padding:1rem 1.5rem;z-index:9999;display:none;box-shadow:0 -4px 20px rgba(0,0,0,0.2);font-size:0.85rem;line-height:1.6}.cookie-banner.show{display:block}.cookie-banner-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}.cookie-banner-text{flex:1;min-width:200px}.cookie-banner-text a{color:#93c5fd;text-decoration:underline}.cookie-banner-text a:hover{color:#bfdbfe}.cookie-banner-actions{display:flex;gap:0.5rem;flex-shrink:0}.cookie-btn{padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;white-space:nowrap}.cookie-btn-accept{background:#2563eb;color:#fff}.cookie-btn-accept:hover{background:#1d4ed8}@media(max-width:480px){.cookie-banner-inner{flex-direction:column;text-align:center}.cookie-banner-actions{width:100%;justify-content:center}}.back-to-top{position:fixed;bottom:80px;right:24px;width:44px;height:44px;background:var(--primary);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:1.2rem;z-index:99;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 12px rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center}.back-to-top.show{opacity:1;visibility:visible}.back-to-top:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 16px rgba(37,99,235,0.4)}</style>
+  <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "Article",
+   "headline": "유효한 미국 주소 형식이란: 표준, 검증 및 일반적인 오류 | Aimei",
+   "description": "USPS 표준에 따라 미국 주소가 유효한 것으로 간주되는 기준을 알아보세요. 주소 검증 방법, 일반적인 거부 사유 및 플랫폼 검증을 통과하는 솔루션을 다룹니다.",
+   "datePublished": "2026-08-25",
+   "author": {"@type": "Organization", "name": "Aimei"},
+   "publisher": {"@type": "Organization", "name": "Aimei", "url": "https://address.aixmb.cn/"},
+   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://address.aixmb.cn/articles/ko/valid-us-address-format.html"}
+  }
+  </script></head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="../../ko/index.html" class="logo">🏠 홈</a>
+    <nav class="nav-links"> <a href="../index.html?lang=ko">기사</a>
+      <a href="../../ko/about.html">회사 소개</a>
+    </nav>
+    <select class="lang-switch" onchange="if(this.value)window.location.href=this.value">
+     <option value="../valid-us-address-format.html">中文</option>
+     <option value="../en/valid-us-address-format.html">English</option>
+     <option value="../ja/valid-us-address-format.html">日本語</option>
+     <option value="" selected>한국어</option>
+    </select>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <nav class="breadcrumb"> <span>›</span> <a href="../index.html?lang=ko">기사</a> <span>›</span> <strong>유효한 미국 주소 형식</strong>
+    </nav>
+
+    <article class="article-content">
+      <h1>유효한 미국 주소 형식이란: 표준, 검증 및 일반적인 오류</h1>
+      <div class="article-meta">
+        <span>📅 2026년 8월 업데이트</span>
+        <span>🏷️ 주소 형식 가이드</span>
+        <span>⏱️ 약 6분 읽기</span>
+      </div>
+
+      <div class="article-body">
+        <p>미국 웹사이트에서 양식을 작성하거나, 계정을 등록하거나, 해외 직구를 할 때 "유효하지 않은 주소" 또는 "유효한 주소를 입력해 주세요"라는 오류 메시지를 자주 접할 수 있습니다. 문제는 종종 주소가 존재하지 않는다는 것이 아니라 <strong>형식이 미국 우편 서비스(USPS) 표준을 준수하지 않는다는 것</strong>입니다. 이 글에서는 유효한 미국 주소의 핵심 요소, 검증 규칙 및 일반적인 오류를 체계적으로 설명하여 주소 거부를 피할 수 있도록 도와줍니다.</p>
+
+        <h2>유효한 미국 주소의 핵심 요소</h2>
+        <p>USPS 공식 사양에 따르면, 표준 미국 주소는 다음과 같은 필수 요소를 포함합니다:</p>
+        <ul>
+          <li><strong>수신인 이름</strong>: 수신인의 전체 이름으로, 일반적으로 이름과 성을 포함합니다.</li>
+          <li><strong>거리 주소</strong>: 건물 번호, 거리 이름 및 거리 유형 접미사(예: St, Ave, Dr, Blvd)를 포함합니다.</li>
+          <li><strong>아파트/유닛/스위트 번호</strong>: 주소에 아파트나 스위트가 포함된 경우 "#", "Apt", "Unit" 또는 "Ste"를 사용하여 거리 주소 뒤에 표시해야 합니다.</li>
+          <li><strong>도시</strong>: 우편번호 및 주 약어와 일치해야 하는 전체 도시 이름.</li>
+          <li><strong>주 약어</strong>: 전체 주 이름이 아닌 CA, NY, TX와 같은 USPS 표준 두 글자 대문자 약어를 사용합니다.</li>
+          <li><strong>우편번호</strong>: 5+4 자리 형식(예: 90210-1234)이 권장되지만, 기본 5자리 우편번호도 허용됩니다.</li>
+        </ul>
+
+        <div class="highlight-box">
+          <p><strong>📌 표준 미국 주소 예시:</strong></p>
+          <p>John Smith<br>123 Main St Apt 4B<br>Los Angeles, CA 90001-1234</p>
+        </div>
+
+        <h2>USPS 주소 검증 규칙</h2>
+        <p>USPS는 <strong>CASS(Coding Accuracy Support System)</strong> 인증으로 알려진 엄격한 주소 검증 시스템을 운영합니다. API를 통해 또는 대량으로 주소를 제출할 때 시스템은 다음 검사를 수행합니다:</p>
+        <ul>
+          <li><strong>거리 이름 표준화</strong>: "Street"를 "St"로, "Avenue"를 "Ave"로 표준화합니다.</li>
+          <li><strong>도시-주-우편번호 삼중 일치</strong>: 도시 이름, 주 약어 및 우편번호가 동일한 지리적 영역을 가리키는지 확인합니다.</li>
+          <li><strong>건물 번호 범위 검증</strong>: 건물 번호가 해당 거리에 실제로 존재하는지 확인합니다.</li>
+          <li><strong>보조 유닛 식별</strong>: 보조 주소 식별자(Apt, Unit, Ste)가 올바르게 형식화되었는지 확인합니다.</li>
+        </ul>
+        <blockquote>USPS는 매일 4억 2,500만 개 이상의 우편물을 처리하며, 약 3%가 주소 형식 오류로 인해 배송 지연이나 반송을 겪습니다. 표준화된 주소 형식을 사용하면 배송 성공률이 크게 향상됩니다.</blockquote>
+
+        <h2>주소 거부의 일반적인 원인</h2>
+        <p>실제로 다음 오류가 주소 검증 실패를 가장 많이 유발합니다:</p>
+        <ol>
+          <li><strong>약어 대신 전체 주 이름 사용</strong>: 많은 비미국 사용자가 "CA" 대신 "California"라고 습관적으로 작성합니다. 시스템은 두 글자 약어를 요구합니다.</li>
+          <li><strong>우편번호가 도시와 일치하지 않음</strong>: 각 우편번호는 특정 도시 범위에 해당합니다. 도시 이름과 일치하지 않는 우편번호를 선택하면 검증이 실패합니다.</li>
+          <li><strong>거리 유형 접미사 누락 또는 잘못됨</strong>: 일부 시스템은 거리 유형 약어를 엄격하게 검증합니다. "Maple Dr" 대신 "Maple Drive"라고 작성하면 거부될 수 있습니다.</li>
+          <li><strong>아파트/유닛 번호 누락</strong>: 다세대 건물의 경우 유닛 번호가 누락되면 불완전한 주소로 처리됩니다.</li>
+          <li><strong>특수 문자 문제</strong>: 주소에 마침표와 쉼표 이외의 특수 문자를 사용하면 구문 분석 오류가 발생할 수 있습니다.</li>
+        </ol>
+
+        <h2>주소 유효성 확인 방법</h2>
+        <p>미국 주소가 유효한지 확인하는 방법에는 여러 가지가 있습니다:</p>
+        <ul>
+          <li><strong>USPS 공식 검증 도구</strong>: USPS 웹사이트에서 우편번호 조회 및 주소 검증 페이지를 방문하여 개별 주소를 무료로 확인할 수 있습니다.</li>
+          <li><strong>타사 주소 검증 API</strong>: SmartyStreets, Lob, EasyPost와 같은 서비스는 대량 검증 및 자동 수정 기능을 제공합니다.</li>
+          <li><strong>주소 생성기로 규정 준수 형식 사용</strong>: 전문 주소 생성기는 USPS 표준을 준수하는 주소를 즉시 생성하여 100% 형식 정확성을 보장합니다.</li>
+        </ul>
+
+        <h2>주소 생성기가 도움을 주는 방법</h2>
+        <p>당사의 주소 생성기는 완전한 USPS 주소 형식 규칙으로 구축되었습니다. 생성된 모든 미국 주소는 다음과 같은 보장을 제공합니다:</p>
+        <ul>
+          <li>✅ 주 약어는 USPS 표준 두 글자 코드를 사용합니다</li>
+          <li>✅ 도시, 주 및 우편번호 삼중이 일치됩니다</li>
+          <li>✅ 거리 이름에 올바른 유형 접미사가 포함됩니다</li>
+          <li>✅ 우편번호 형식이 표준화됩니다 (5자리 또는 5+4)</li>
+          <li>✅ 무작위 아파트/유닛 번호 생성을 지원합니다</li>
+        </ul>
+        <p>테스트 데이터가 필요한 개발자든 양식을 작성하는 일반 사용자든, 주소 생성기는 올바르게 형식화된 미국 주소를 제공합니다.</p>
+      </div>
+    </article>
+
+        <!-- 관련 기사 -->
+    <section class="related-section">
+      <div class="related-section-header"><h2>관련 글</h2></div>
+      <div class="related-grid">
+        <a href="us-address-format-guide.html" class="related-card">
+          <span class="related-card-label">← 이전 글</span>
+          <h3>미국 주소 형식 완전 가이드: 거리, 도시, 주, ZIP 코드 | Aimei</h3>
+          <p>이 포괄적인 가이드로 미국 주소 형식을 마스터하세요. 거리 명명 규칙, 주 약어, ZIP 코드 인코딩 및 피해야 할 일반적인 실수를 알아보세요. 개발자, 테스터 및 국제 사용자에게 적합합니다.</p>
+        </a>
+        <a href="canadian-address-format.html" class="related-card">
+          <span class="related-card-label">다음 글 →</span>
+          <h3>캐나다 주소 형식 가이드: 주 코드, 우편번호 규칙 및 팁 | Aimei</h3>
+          <p>캐나다 주소 형식 표준에 대한 완전한 가이드. 주 약어, A1A 1A1 우편번호 구조, 영어-프랑스어 주소 차이, 캐나다 주소를 올바르게 작성하는 실용적인 팁을 포함합니다.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>올바른 형식의 미국 주소가 필요하신가요?</h2>
+      <p>주소 생성기를 사용하여 USPS 규정을 준수하는 유효한 주소를 즉시 생성하세요</p>
+      <a href="../../ko/index.html#selector" class="cta-btn">지금 주소 생성하기</a>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>홈</h4>
+        <p>6개국(미국, 캐나다, 영국, 호주, 독일, 프랑스)의 사실적인 무작위 주소를 무료로 생성하는 온라인 도구입니다. 모든 데이터는 테스트 목적으로만 사용됩니다.</p>
+      </div>
+      <div class="footer-col">
+        <h4>빠른 링크</h4> <a href="../index.html?lang=ko">기사</a>
+        <a href="../../ko/about.html">회사 소개</a>
+        <a href="../../ko/contact.html">문의하기</a>
+      </div>
+      <div class="footer-col">
+        <h4>법적 정보</h4>
+        <a href="../../ko/privacy.html">개인정보처리방침</a>
+        <a href="../../ko/terms.html">이용약관</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 주소 생성기 | 모든 데이터는 테스트 목적으로 무작위 생성됩니다</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../script.js"></script>
+<div class="cookie-banner" id="cookieBanner"><div class="cookie-banner-inner"><div class="cookie-banner-text">이 웹사이트는 Cookie와 Google AdSense를 사용하여 경험을 개선합니다. 계속하면 <a href="../../ko/privacy.html">개인정보처리방침</a>에 동의하는 것입니다.</div><div class="cookie-banner-actions"><button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">동의</button></div></div></div><script>function acceptCookies(){document.getElementById(\"cookieBanner\").classList.remove(\"show\");localStorage.setItem(\"cookieConsent\",\"accepted\")}if(!localStorage.getItem(\"cookieConsent\")){document.getElementById(\"cookieBanner\").classList.add(\"show\")}</script><button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:&#39;smooth&#39;})" title="返回顶部">&#8593;</button><script>window.addEventListener(&#39;scroll&#39;,function(){document.getElementById(&#39;backToTop&#39;).classList.toggle(&#39;show&#39;,window.scrollY>300)})</script></body>
+</html>
